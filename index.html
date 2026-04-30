@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CarryOn Logistics - About Us</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #222;
+      background: #fff;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 24px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: #c0392b;
+      clip-path: polygon(0 100%, 50% 0, 100% 100%);
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 800;
+      color: #1a1a2e;
+      line-height: 1.1;
+    }
+
+    .logo-text span { color: #c0392b; }
+
+    .hamburger {
+      font-size: 26px;
+      cursor: pointer;
+      color: #1a1a2e;
+      background: none;
+      border: none;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(10,20,50,0.75), rgba(10,20,50,0.75)),
+                  url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200') center/cover no-repeat;
+      color: #fff;
+      padding: 70px 24px 50px;
+    }
+
+    .hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 span {
+      display: block;
+      width: 40px;
+      height: 4px;
+      background: #c0392b;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 480px;
+      opacity: 0.9;
+    }
+
+    .breadcrumb {
+      display: flex;
+      gap: 8px;
+      padding: 14px 24px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      font-size: 13px;
+    }
+
+    .breadcrumb a { color: #555; text-decoration: none; }
+    .breadcrumb .active { color: #c0392b; font-weight: 600; }
+    .breadcrumb span { color: #aaa; }
+
+    .section { padding: 48px 24px; }
+
+    .badge {
+      display: inline-block;
+      background: #c0392b;
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.3;
+      color: #1a1a2e;
+      margin-bottom: 24px;
+    }
+
+    .truck-img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 28px;
+      object-fit: cover;
+      height: 220px;
+    }
+
+    .body-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 24px;
+    }
+
+    .feature-list { list-style: none; margin-bottom: 28px; }
+
+    .feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .feature-list li::before {
+      content: '▶';
+      color: #c0392b;
+      font-size: 10px;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    .quote-block {
+      background: #f7f9fc;
+      border-left: 4px solid #c0392b;
+      padding: 20px;
+      border-radius: 4px;
+      margin-bottom: 28px;
+    }
+
+    .quote-block p {
+      font-size: 15px;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    .ship-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 6px;
+      margin-bottom: 40px;
+    }
+
+    .driven-section {
+      background: #f0f4f8;
+      padding: 48px 24px;
+      overflow: hidden;
+    }
+
+    .driven-label {
+      font-size: 28px;
+      font-weight: 900;
+      color: #d0d8e4;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 28px 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+      margin-bottom: 20px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      background: #1a1a2e;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .card-icon svg { width: 22px; height: 22px; fill: #fff; }
+
+    .card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+    }
+
+    .card p { font-size: 14px; line-height: 1.7; color: #666; }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: #e0e0e0;
+      margin-top: 40px;
+    }
+
+    .stat-box { background: #fff; padding: 28px 16px; text-align: center; }
+    .stat-box .number { font-size: 32px; font-weight: 900; color: #c0392b; }
+    .stat-box .label { font-size: 12px; color: #888; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    footer { background: #1a1a2e; color: #aaa; padding: 40px 24px 24px; }
+    .footer-logo { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 12px; }
+    .footer-logo span { color: #c0392b; }
+    footer p { font-size: 13px; line-height: 1.7; margin-bottom: 24px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px; }
+    .footer-links a { color: #aaa; text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #c0392b; }
+    .footer-bottom { border-top: 1px solid #2e2e4e; padding-top: 16px; font-size: 12px; text-align: center; color: #666; }
+
+    .scroll-top {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #c0392b;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(192,57,43,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 100px 60px 70px; }
+      .hero h1 { font-size: 48px; }
+      .section { padding: 64px 60px; }
+      .section h2 { font-size: 36px; }
+      .stats-strip { grid-template-columns: repeat(4, 1fr); }
+      .cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero { padding: 120px 100px 90px; }
+      .section { padding: 80px 100px; }
+      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+      .cards-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="#">
+      <div class="logo-icon"></div>
+      <div class="logo-text">Carryon<br><span>Logistics.</span></div>
+    </a>
+    <button class="hamburger">☰</button>
+  </nav>
+
+  <section class="hero">
+    <h1>About CarryOn<span></span></h1>
+    <p>Our transportation division offers reliable and efficient solutions for all your transportation needs.</p>
+  </section>
+
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <span>/</span>
+    <span class="active">About Us</span>
+  </div>
+
+  <section class="section">
+    <span class="badge">Integrated Logistics Solutions Worldwide</span>
+    <h2>Trusted, Reliable And Scalable Logistics Solutions</h2>
+
+    <img class="truck-img"
+      src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=800"
+      alt="CarryOn Logistics Truck" />
+
+    <p class="body-text">
+      We focus on building logistics solutions that are practical, dependable, and easy to manage.
+      Every process at CarryOn is designed to reduce friction, improve visibility, and deliver
+      consistent results for our clients.
+    </p>
+
+    <ul class="feature-list">
+      <li>Operations Team With Real-World Logistics Experience</li>
+      <li>Structured Processes For B2B &amp; E-Commerce</li>
+      <li>Transparent Tracking &amp; Responsive Support</li>
+      <li>Designed To Scale With Growing Businesses</li>
+    </ul>
+
+    <div class="quote-block">
+      <p>
+        We Don't Just Move Cargo — We Move Trust, Reliability, And Long-Term Partnerships.
+        At CarryOn, Logistics Is More Than Transportation; It's About Enabling Businesses
+        To Operate With Confidence In An Increasingly Complex Global Market.
+      </p>
+    </div>
+
+    <p class="body-text">
+      We are committed to simplifying supply chains, reducing uncertainty, and helping our clients
+      grow through dependable logistics support. With years of industry experience and a strong
+      understanding of global trade challenges, we deliver end-to-end logistics services including
+      freight planning, coordination, compliance management, and risk protection. Our team combines
+      operational expertise with clear communication to ensure every shipment is handled with
+      precision, transparency, and care — from origin to final destination.
+    </p>
+
+    <img class="ship-img"
+      src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=800"
+      alt="Cargo Ship" />
+  </section>
+
+  <section class="driven-section">
+    <div class="driven-label">Solutions — Driven By Excellence</div>
+
+    <div class="cards-grid">
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </div>
+        <h3>Handle Seasonal Order Peaks Confidently</h3>
+        <p>Flexible transport capacity designed to support demand spikes during peak sales periods.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+        </div>
+        <h3>Real-Time Shipment Visibility</h3>
+        <p>Track every shipment at every stage with live updates and transparent reporting tools.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8z"/></svg>
+        </div>
+        <h3>Compliance &amp; Risk Management</h3>
+        <p>Stay ahead of regulatory requirements with our expert compliance and documentation support.</p>
+      </div>
+    </div>
+
+    <div class="stats-strip">
+      <div class="stat-box">
+        <div class="number">12K+</div>
+        <div class="label">Shipments Delivered</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">98%</div>
+        <div class="label">On-Time Rate</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">40+</div>
+        <div class="label">Countries Covered</div>
+      </div>
+      <div class="stat-box">
+        <div class="number">15+</div>
+        <div class="label">Years Experience</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo">Carryon <span>Logistics.</span></div>
+    <p>Reliable and efficient logistics solutions for businesses of all sizes — from origin to final destination.</p>
+    <div class="footer-links">
+      <a href="#">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Services</a>
+      <a href="#">Tracking</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-bottom">
+      © 2026 CarryOn Logistics. All rights reserved.
+    </div>
+  </footer>
+
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+</body>
+</html>
